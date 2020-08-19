@@ -18,7 +18,7 @@ export interface ShipmentRecord {
     value: number;
   };
   containers: Array<{
-    type: string;
+    containerType: string;
     containingProducts: Array<{
       id: string;
       quantity: number;
@@ -27,7 +27,7 @@ export interface ShipmentRecord {
 }
 
 export interface ContainerSpec {
-  type: string;
+  containerType: string;
   dimensions: Dimensions;
 }
 

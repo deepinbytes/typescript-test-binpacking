@@ -6,7 +6,7 @@ import { OrderHandler } from "../../orderHandler";
 describe("Orders Packing Test Cases", () => {
   const containerSpecs: ContainerSpec[] = [
     {
-      type: "Cardboard A",
+      containerType: "Cardboard A",
       dimensions: {
         unit: "centimeter",
         length: 30,
@@ -15,7 +15,7 @@ describe("Orders Packing Test Cases", () => {
       },
     },
     {
-      type: "Cardboard B",
+      containerType: "Cardboard B",
       dimensions: {
         unit: "centimeter",
         length: 10,
@@ -52,7 +52,7 @@ describe("Orders Packing Test Cases", () => {
       },
       containers: expect.arrayContaining([
         {
-          type: "Cardboard A",
+          containerType: "Cardboard A",
           containingProducts: expect.arrayContaining([
             {
               id: "PRODUCT-001",
@@ -94,7 +94,7 @@ describe("Orders Packing Test Cases", () => {
       },
       containers: expect.arrayContaining([
         {
-          type: "Cardboard A",
+          containerType: "Cardboard A",
           containingProducts: expect.arrayContaining([
             {
               id: "PRODUCT-002",
@@ -178,7 +178,7 @@ describe("Orders Packing Test Cases", () => {
       },
       containers: [
         {
-          type: "Cardboard A",
+          containerType: "Cardboard A",
           containingProducts: [
             {
               id: "PRODUCT-004",
@@ -187,7 +187,7 @@ describe("Orders Packing Test Cases", () => {
           ],
         },
         {
-          type: "Cardboard A",
+          containerType: "Cardboard A",
           containingProducts: [
             {
               id: "PRODUCT-004",
