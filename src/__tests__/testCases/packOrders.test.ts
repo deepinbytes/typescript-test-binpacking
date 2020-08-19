@@ -14,6 +14,15 @@ describe("Orders Packing Test Cases", () => {
         height: 30,
       },
     },
+    {
+      type: "Cardboard B",
+      dimensions: {
+        unit: "centimeter",
+        length: 10,
+        width: 20,
+        height: 20,
+      },
+    },
   ];
   const orderHandler = new OrderHandler({ containerSpecs });
 
