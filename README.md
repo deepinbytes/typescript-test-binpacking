@@ -19,7 +19,7 @@ Clone the repository.
 
 From the root of your local repository, run `npm install`.
 
-To verify that installation was successful, run `npm run helloWorld`.
+To verify that installation was successful, run `npm run helloWorld`, you should see a success message.
 
 ## More Information
 
