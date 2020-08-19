@@ -30,7 +30,7 @@ describe("Orders Packing Test Cases", () => {
             unit: "centimeter",
             length: 10,
             width: 10,
-            height: 10,
+            height: 30,
           },
         },
       ],
@@ -39,7 +39,7 @@ describe("Orders Packing Test Cases", () => {
       orderId: "ORDER-001",
       totalVolume: {
         unit: "cubic centimeter",
-        value: 9000,
+        value: 27000,
       },
       containers: expect.arrayContaining([
         {
@@ -72,7 +72,7 @@ describe("Orders Packing Test Cases", () => {
             unit: "centimeter",
             length: 10,
             width: 10,
-            height: 10,
+            height: 30,
           },
         },
       ],
@@ -105,6 +105,7 @@ describe("Orders Packing Test Cases", () => {
       });
     });
     expect(totalProductQuantity).toEqual(10);
+    expect(shipmentRecord.containers.length).toBeGreaterThan(1);
     expect(shipmentRecord).toEqual(expectedShipmentRecord);
   });
 
@@ -121,7 +122,7 @@ describe("Orders Packing Test Cases", () => {
             unit: "centimeter",
             length: 10,
             width: 10,
-            height: 10,
+            height: 30,
           },
         },
         {
@@ -164,7 +165,7 @@ describe("Orders Packing Test Cases", () => {
       orderId: "ORDER-004",
       totalVolume: {
         unit: "cubic centimeter",
-        value: 18000,
+        value: 54000,
       },
       containers: [
         {
