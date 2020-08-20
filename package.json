@@ -11,7 +11,7 @@
   },
   "scripts": {
     "testCases": "jest --testPathPattern=src/__tests__/testCases",
-    "unitTests": "jest --testPathPattern=src/__tests__/unitTests",
+    "unitTests": "jest --testPathPattern=src/__tests__/unitTests --coverage",
     "helloWorld": "jest helloWorld.test.ts"
   }
 }
