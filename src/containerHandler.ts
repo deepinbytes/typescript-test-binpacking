@@ -53,7 +53,7 @@ export default class ContainerHandler implements ContainerSpec {
             }
 
             if (fit) {
-                container._products.push(product);
+                this.appendProduct(product);
             }
             return fit;
         }

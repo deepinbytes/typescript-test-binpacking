@@ -10,7 +10,7 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "testCases": "jest --testPathPattern=src/__tests__/testCases",
+    "testCases": "jest --testPathPattern=src/__tests__/testCases --coverage",
     "unitTests": "jest --testPathPattern=src/__tests__/unitTests --coverage",
     "helloWorld": "jest helloWorld.test.ts"
   }

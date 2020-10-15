@@ -203,3 +203,132 @@ describe("Orders Packing Test Cases", () => {
     );
   });
 });
+
+describe("Orders Packing More Test Cases", () => {
+  const containerSpecs: ContainerSpec[] = [
+    {
+      containerType: "Cardboard A",
+      dimensions: {
+        unit: "centimeter",
+        length: 5,
+        width: 5,
+        height: 5,
+      },
+    },
+    {
+      containerType: "Cardboard B",
+      dimensions: {
+        unit: "centimeter",
+        length: 10,
+        width: 20,
+        height: 20,
+      }},
+    {
+      containerType: "Cardboard C",
+      dimensions: {
+        unit: "centimeter",
+        length: 20,
+        width: 20,
+        height: 20,
+      }},
+    {
+      containerType: "Cardboard D",
+      dimensions: {
+        unit: "centimeter",
+        length: 30,
+        width: 20,
+        height: 20,
+      },
+    },
+  ];
+
+  const orderHandler = new OrderHandler({containerSpecs});
+  test("Given an order of different sizes and diffrent container spec optimize pack", () => {
+    const orderRequest: OrderRequest = {
+      id: "ORDER-010",
+      products: [
+        {
+          id: "PRODUCT-001",
+          name: "NINJA MASK",
+          orderedQuantity: 5,
+          unitPrice: 13.4,
+          dimensions: {
+            unit: "centimeter",
+            length: 10,
+            width: 10,
+            height: 20,
+          },
+        },
+        {
+          id: "PRODUCT-003",
+          name: "SAMURAI MASK",
+          orderedQuantity: 6,
+          unitPrice: 99.95,
+          dimensions: {
+            unit: "centimeter",
+            length: 10,
+            width: 5,
+            height: 5,
+          }
+          },
+        {
+          id: "PRODUCT-003",
+          name: "SAMURAI MASK",
+          orderedQuantity: 6,
+          unitPrice: 99.95,
+          dimensions: {
+            unit: "centimeter",
+            length: 30,
+            width: 5,
+            height: 5,
+          },
+        },
+      ],
+    };
+
+    const expectedShipmentRecord: ShipmentRecord = {
+      orderId: "ORDER-010",
+      totalVolume: {
+        unit: "cubic centimeter",
+        value: 24000,
+      },
+      containers: expect.arrayContaining([
+        {
+          containerType: "Cardboard B",
+          containingProducts: expect.arrayContaining([
+            {
+              id: "PRODUCT-001",
+              quantity: 2,
+            },
+          ]),
+        },
+        {
+          containerType: "Cardboard D",
+          containingProducts: expect.arrayContaining([
+            {
+              id: "PRODUCT-003",
+              quantity: 6,
+            },
+            {
+              id: "PRODUCT-001",
+              quantity: 1,
+            },
+          ]),
+        },
+        {
+          containerType: "Cardboard C",
+          containingProducts: expect.arrayContaining([
+            {
+              id: "PRODUCT-001",
+              quantity: 2,
+            },
+          ]),
+        }
+      ]),
+    };
+
+    expect(orderHandler.packOrder(orderRequest)).toEqual(
+        expectedShipmentRecord
+    );
+  });
+});
