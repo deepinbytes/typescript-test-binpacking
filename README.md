@@ -1,5 +1,8 @@
-# Getting Started
+# Typescript Test - Bin packing 
 
+Given a list of standard containers the solution
+should help pack all products in an order into those standard containers in an optimized way.
+ 
 ## Prerequisites
 
 Your system must have NodeJS and NPM installed. This project is working on:
@@ -34,3 +37,8 @@ For more information about the dependencies used in this project, visit the foll
 - Testing framework: [Jest](https://jestjs.io/)
 - Environment: [NodeJS](https://nodejs.org/en/)
 - Language: [TypeScript](https://www.typescriptlang.org/)
+
+## Others
+
+This project was developed under time constraints, and is not bug-free.
+ Please use issues for suggestions and bug reports.
